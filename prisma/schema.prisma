@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model Cars {
+  id        Int      @id @default(autoincrement())
+  name      String?  @db.VarChar(255)
+  price     Int?
+  carType   String?  @db.VarChar(255)
+  carBrand  String?  @db.VarChar(255)
+  carAvg    Int?
+  image     String?  @db.VarChar(255)
+  seat      Int?
+  createdAt DateTime @db.Timestamptz(6)
+  updatedAt DateTime @db.Timestamptz(6)
+}
+
+model SequelizeMeta {
+  name String @id @db.VarChar(255)
+}
